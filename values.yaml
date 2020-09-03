@@ -389,6 +389,9 @@ seldon-core-operator:
   usageMetrics:
     enabled: false
 
+spark-cluster-operator:
+  enabled: false
+
 zabbix:
   enabled: false
   postgresql:
