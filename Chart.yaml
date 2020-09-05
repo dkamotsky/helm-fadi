@@ -24,7 +24,7 @@ maintainers:
 dependencies:
 - name: spark
   version: ~3.0.0
-  repository: https://hub.helm.sh/charts/bitnami/spark
+  repository: https://charts.bitnami.com/bitnami
   condition: spark.enabled
 - name: superset
   version: ~1.1.11
