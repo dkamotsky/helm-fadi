@@ -23,8 +23,8 @@ maintainers:
   - name: AyadiAmen
 dependencies:
 - name: spark
-  version: ~1.0.3
-  repository: https://kubernetes-charts.storage.googleapis.com/
+  version: ~3.0.0
+  repository: https://hub.helm.sh/charts/bitnami/spark
   condition: spark.enabled
 - name: superset
   version: ~1.1.11
