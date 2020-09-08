@@ -214,6 +214,7 @@ jupyterhub:
   enabled: true
   proxy:
     secretToken: 'af83775ec3bfaf0507ce596df51d491e7ed54450adc454038fa7405495465f19'
+  hub:
     db:
       type: sqlite-memory
   rbac:
@@ -221,7 +222,7 @@ jupyterhub:
   singleuser:
     storage:
       capacity: 5Gi
-  # Defines the default image
+    # Defines the default image
     image:
       name: jupyter/minimal-notebook
       tag: 7d427e7a4dde
