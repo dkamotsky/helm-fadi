@@ -5,15 +5,12 @@
 
 spark:
   enabled: true
-  Master:
-    Name: spark-master
-  WebUi:
-    Name: spark-webui
-  Worker:
-    Name: spark-worker
-  Zeppelin:
-    Name: spark-zeppelin
-    Replicas: 0
+  worker:
+    replicaCount: 2
+    autoscaling:
+      enabled: false
+      CpuTargetPercentage: 50
+      replicasMax: 2
 
 superset:
   enabled: true
