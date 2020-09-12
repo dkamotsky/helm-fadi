@@ -23,7 +23,7 @@ maintainers:
   - name: AyadiAmen
 dependencies:
 - name: spark
-  version: 3.0.1
+  version: 3.0.0
   repository: https://charts.bitnami.com/bitnami
   condition: spark.enabled
 - name: superset
