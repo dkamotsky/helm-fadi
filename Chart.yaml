@@ -35,7 +35,7 @@ dependencies:
   repository: https://cetic.github.io/helm-charts/
   condition: postgresql.enabled
 - name: minio
-  version: ~5.0.29
+  version: 5.0.29
   repository: https://kubernetes-charts.storage.googleapis.com/
   condition: minio.enabled
 - name: grafana
