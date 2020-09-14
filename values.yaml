@@ -412,3 +412,6 @@ zabbix:
     POSTGRES_USER: admin
     POSTGRES_PASSWORD: password1
     POSTGRES_DB: postgres
+
+hue:
+  enabled: false

@@ -114,3 +114,7 @@ dependencies:
   version: ~1.0.2
   repository: https://storage.googleapis.com/seldon-charts/
   condition: seldon-core-operator.enabled
+- name: hue
+  version: ~1.0.0
+  repository: https://helm.gethue.com
+  condition: hue.enabled
