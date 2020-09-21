@@ -5,6 +5,9 @@
 
 spark:
   enabled: true
+  image:
+    repository: dkamotsky/builtin-spark
+    tag: latest
   worker:
     replicaCount: 2
     autoscaling:
