@@ -383,16 +383,7 @@ adminer:
 
 mlflow:
   enabled: false
-  image:
-    tag: 1.9.1
-  backendStore:
-    postgres:
-      username: admin
-      password: password1
-      host: fadi-postgresql.fadi.svc.cluster.local
-      port: 5342
-      database: postgres
-  defaultArtifactRoot: 's3://mlflow'
+  backend_store_uri: "postgresql://admin:password1@fadi-postgresql.fadi.svc.cluster.local:5432"
 
 seldon-core-operator:
   enabled: false

@@ -103,8 +103,8 @@ dependencies:
   repository: https://cetic.github.io/helm-charts/
   condition: adminer.enabled
 - name: mlflow
-  version: ~1.0.1
-  repository: https://larribas.me/helm-charts
+  version: ~1.4.0
+  repository: https://cetic.github.io/helm-charts/
   condition: mlflow.enabled
 - name: zabbix
   version: ~0.1.2
