@@ -285,6 +285,8 @@ openldap:
 
 phpldapadmin:
   enabled: true
+  image:
+    tag: 0.9.0
   service:
     type: NodePort
   env:
