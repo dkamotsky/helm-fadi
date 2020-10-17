@@ -420,3 +420,98 @@ zabbix:
 
 hue:
   enabled: false
+
+airflow:
+  ingress:
+    enabled: false
+  airflow:
+    ## configs for the docker image of the web/scheduler/worker
+    ##
+    image:
+      repository: brettbevers/spark-airflow
+      tag: latest
+      ## values: Always or IfNotPresent
+      pullPolicy: Always
+      pullSecret: ""
+    ## the airflow executor type to use
+    ##
+    executor: CeleryExecutor
+    ## the fernet key used to encrypt the connections in the database
+    ##
+    fernetKey: "7T512UXSSmBOkpWimFHIVb8jK6lfmSAvx4mO6Arehnc="
+    ## environment variables for the web/scheduler/worker Pods (for airflow configs)
+    ##
+    config:
+      # Security
+      AIRFLOW__CORE__SECURE_MODE: "True"
+      AIRFLOW__API__AUTH_BACKEND: "airflow.api.auth.backend.deny_all"
+      AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "False"
+      AIRFLOW__WEBSERVER__RBAC: "False"
+      # DAGS
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+      ## Disable noisy "Handling signal: ttou" Gunicorn log messages
+      GUNICORN_CMD_ARGS: "--log-level WARNING"
+  ###################################
+  # Airflow - Scheduler Configs
+  ###################################
+  scheduler:
+    ## custom airflow connections for the airflow scheduler
+    ##
+    connections:
+      - id: my_aws
+        type: aws
+        extra: |
+          {
+            "aws_access_key_id": "XXXXXXXXXXXXXXXXXXX",
+            "aws_secret_access_key": "XXXXXXXXXXXXXXX",
+            "region_name":"eu-central-1"
+          }
+    ## custom airflow variables for the airflow scheduler
+    ##
+    variables: |
+      { "environment": "dev" }
+    ## custom airflow pools for the airflow scheduler
+    ##
+    pools: |
+      {
+        "example": {
+          "description": "This is an example pool with 2 slots.",
+          "slots": 2
+        }
+      }
+  ###################################
+  # Airflow - WebUI Configs
+  ###################################
+  web:
+    ## configs for the Service of the web Pods
+    ##
+    service:
+      type: NodePort
+  ###################################
+  # Airflow - Worker Configs
+  ###################################
+  workers:
+    ## the number of workers Pods to run
+    ##
+    replicas: 1
+  ###################################
+  # Airflow - DAGs Configs
+  ###################################
+  dags:
+    ## install any Python `requirements.txt` at the root of `dags.path` automatically
+    ##
+    ## WARNING:
+    ## - if set to true, and you are using `dags.git.gitSync`, you must also enable
+    ## `dags.initContainer` to ensure the requirements.txt is available at Pod start
+    ##
+    installRequirements: true
+  ###################################
+  # Database - PostgreSQL Chart
+  ###################################
+  postgresql:
+    enabled: true
+  ###################################
+  # Database - Redis Chart
+  ###################################
+  redis:
+    enabled: true

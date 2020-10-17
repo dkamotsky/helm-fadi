@@ -118,3 +118,7 @@ dependencies:
   version: ~1.0.0
   repository: https://helm.gethue.com
   condition: hue.enabled
+- name: airflow
+  version: 7.10.0
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  condition: airflow.enabled
