@@ -424,32 +424,33 @@ hue:
 airflow:
   ingress:
     enabled: false
-  ## configs for the docker image of the web/scheduler/worker
-  ##
-  image:
-    repository: brettbevers/spark-airflow
-    tag: latest
-    ## values: Always or IfNotPresent
-    pullPolicy: Always
-    pullSecret: ""
-  ## the airflow executor type to use
-  ##
-  executor: CeleryExecutor
-  ## the fernet key used to encrypt the connections in the database
-  ##
-  fernetKey: "7T512UXSSmBOkpWimFHIVb8jK6lfmSAvx4mO6Arehnc="
-  ## environment variables for the web/scheduler/worker Pods (for airflow configs)
-  ##
-  config:
-    # Security
-    AIRFLOW__CORE__SECURE_MODE: "True"
-    AIRFLOW__API__AUTH_BACKEND: "airflow.api.auth.backend.deny_all"
-    AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "False"
-    AIRFLOW__WEBSERVER__RBAC: "False"
-    # DAGS
-    AIRFLOW__CORE__LOAD_EXAMPLES: "False"
-    ## Disable noisy "Handling signal: ttou" Gunicorn log messages
-    GUNICORN_CMD_ARGS: "--log-level WARNING"
+  airflow:
+    ## configs for the docker image of the web/scheduler/worker
+    ##
+    image:
+      repository: brettbevers/spark-airflow
+      tag: latest
+      ## values: Always or IfNotPresent
+      pullPolicy: Always
+      pullSecret: ""
+    ## the airflow executor type to use
+    ##
+    executor: CeleryExecutor
+    ## the fernet key used to encrypt the connections in the database
+    ##
+    fernetKey: "7T512UXSSmBOkpWimFHIVb8jK6lfmSAvx4mO6Arehnc="
+    ## environment variables for the web/scheduler/worker Pods (for airflow configs)
+    ##
+    config:
+      # Security
+      AIRFLOW__CORE__SECURE_MODE: "True"
+      AIRFLOW__API__AUTH_BACKEND: "airflow.api.auth.backend.deny_all"
+      AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "False"
+      AIRFLOW__WEBSERVER__RBAC: "False"
+      # DAGS
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+      ## Disable noisy "Handling signal: ttou" Gunicorn log messages
+      GUNICORN_CMD_ARGS: "--log-level WARNING"
   ###################################
   # Airflow - Scheduler Configs
   ###################################
