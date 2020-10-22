@@ -7,13 +7,13 @@ spark:
   enabled: true
   image:
     repository: dkamotsky/spark
-    tag: 3.0.1
+    tag: 3.0.1-1
   worker:
-    replicaCount: 2
+    replicaCount: 3 #2 workers and 1 thriftserver (dkamotsky/spark image will assign the worker with hostname==kairos-spark-worker-0 to be thriftserver)
     autoscaling:
       enabled: false
       CpuTargetPercentage: 50
-      replicasMax: 2
+      replicasMax: 3
 
 superset:
   enabled: true
