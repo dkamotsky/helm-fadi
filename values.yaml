@@ -420,6 +420,38 @@ zabbix:
 
 hue:
   enabled: false
+  image:
+    registry: "dkamotsky"
+    tag: "4.8.0"
+  balancer:
+    enabled: false
+  ingress:
+    create: false
+  hue:
+    replicas: 1
+    database:
+      create: false
+      persist: true
+      engine: "postgresql_psycopg2"
+      host: "fadi-postgresql"
+      port: 5432
+      name: "hue"
+    ini: |
+      [desktop]
+      is_hue_4=true
+      secret_key=hue123
+      app_blacklist=filebrowser,search,hbase,security,jobbrowser,oozie
+      django_debug_mode=false
+      gunicorn_work_class=gevent
+      enable_prometheus=true
+
+      [[task_server]]
+      enabled=false
+
+      [beeswax]
+      # Thrift version to use when communicating with HiveServer2.
+      # Version 11 comes with Hive 3.0. If issues, try 7.
+      thrift_version=7
 
 airflow:
   ingress:
