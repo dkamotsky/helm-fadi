@@ -422,7 +422,7 @@ hue:
   enabled: false
   image:
     registry: "dkamotsky"
-    tag: "4.8.0"
+    tag: "4.8.0-1"
   balancer:
     enabled: false
   ingress:
@@ -444,9 +444,36 @@ hue:
       django_debug_mode=false
       gunicorn_work_class=gevent
       enable_prometheus=true
+      use_new_editor=true
+      enable_download=false
+      enable_sharing=false
+      use_new_side_panels=true
+      use_new_charts=true
+      enable_gist=false
+      enable_gist_preview=false
+      enable_link_sharing=false
+
+      [[django_admins]]
+        [[[admin1]]]
+        name=kamotskyd
+        email=kamotskyd@corning.com
+        [[[admin2]]]
+        name=beversbm
+        email=beversbm@corning.com
+
+      [[custom]]
+        banner_top_html='<div class="container-fluid text-center"><span id="infosec-header"><h4 style="background-color:#f15757">Corning Restricted - Special Control</h4></span></div>'
+        login_splash_html=<img src="/static/desktop/art/CorningLogo.png" alt='Corning' title='Corning' width="100" />
+        logo_svg=<image xlink:href="/static/desktop/art/KairosLogo.png" x="0" y="0" height="60" width="120"/>
 
       [[task_server]]
-      enabled=false
+        enabled=false
+
+      [notebook]
+        show_notebooks=false
+
+      [dashboard]
+        is_enabled=false
 
       [beeswax]
       # Thrift version to use when communicating with HiveServer2.
