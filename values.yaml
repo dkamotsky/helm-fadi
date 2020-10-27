@@ -20,7 +20,7 @@ superset:
   image:
     tag: 0.37.2
   persistence:
-    enabled: true
+    enabled: false
   service:
     type: NodePort
   configFile: |-
