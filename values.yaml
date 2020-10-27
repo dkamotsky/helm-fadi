@@ -17,6 +17,8 @@ spark:
 
 superset:
   enabled: true
+  image:
+    tag: 0.37.2
   persistence:
     enabled: true
   service:
