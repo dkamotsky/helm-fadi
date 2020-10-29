@@ -18,6 +18,7 @@ spark:
 superset:
   enabled: true
   image:
+    repository: "dkamotsky/superset"
     tag: 0.37.2
   persistence:
     enabled: false
