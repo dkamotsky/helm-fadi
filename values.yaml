@@ -425,7 +425,7 @@ hue:
   enabled: false
   image:
     registry: "dkamotsky"
-    tag: "4.8.0-1"
+    tag: "4.8.0-2"
   balancer:
     enabled: false
   ingress:
@@ -467,7 +467,7 @@ hue:
       [[custom]]
         banner_top_html='<div class="container-fluid text-center"><span id="infosec-header"><h4 style="background-color:#f15757">Corning Restricted - Special Control</h4></span></div>'
         login_splash_html=<img src="/static/desktop/art/CorningLogo.png" alt='Corning' title='Corning' width="100" />
-        logo_svg=<image xlink:href="/static/desktop/art/KairosLogo.png" x="0" y="0" height="60" width="120"/>
+        logo_svg=<image xlink:href="/static/desktop/art/KairosLogoSmall.png" x="10" y="-10" width="60" height="60"/>
 
       [[task_server]]
         enabled=false
