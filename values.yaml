@@ -388,6 +388,9 @@ adminer:
 
 mlflow:
   enabled: false
+  image:
+    repository: dkamotsky/mlflow
+    tag: 1.11.0-4
   backend_store_uri: "postgresql://admin:password1@fadi-postgresql.fadi.svc.cluster.local:5432"
 
 seldon-core-operator:
