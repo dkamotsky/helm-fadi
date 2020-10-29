@@ -19,7 +19,7 @@ superset:
   enabled: true
   image:
     repository: "dkamotsky/superset"
-    tag: 0.37.2
+    tag: 0.37.2-1
   persistence:
     enabled: false
   service:
