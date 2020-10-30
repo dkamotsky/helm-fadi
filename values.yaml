@@ -294,6 +294,7 @@ phpldapadmin:
     type: NodePort
   env:
     PHPLDAPADMIN_LDAP_HOSTS: "fadi-openldap"
+    PHPLDAPADMIN_TRUST_PROXY_SSL: "true"
 
 kafka:
   enabled: false
