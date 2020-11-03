@@ -3,6 +3,8 @@ Changelog
 
 This branch adds Apache Kafka to the stack.
 
+TEST2 TEST2 === this change has been applied in GitHub!!! === TEST2 TEST2
+
 TODO:
 
 * add documentation 
